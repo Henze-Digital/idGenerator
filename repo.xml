@@ -9,4 +9,5 @@
     <target>idGenerator</target>
     <prepare>pre-install.xql</prepare>
     <finish/>
+    <permissions user="raff" password="dummy" group="raffArchive" mode="rwxrwx---"/>
 <deployed>2021-07-13T11:38:48.266+02:00</deployed></meta>
