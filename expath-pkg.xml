@@ -1,0 +1,4 @@
+<package xmlns="http://expath.org/ns/pkg" name="http://www.raff-archiv.ch/idGenerator" abbrev="idGenerator" version="0.1" spec="1.0">
+    <title>idGenerator</title>
+    <dependency package="http://exist-db.org/apps/shared"/>
+</package>
