@@ -1,2 +1,4 @@
 data/generatedIdList-*.xml
 *.xar
+*.DS_Store
+.existdb.json
