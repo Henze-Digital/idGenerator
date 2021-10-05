@@ -7,7 +7,15 @@
     <property name="project.app" value="idGenerator"/>
     <property name="build.dir" value="build"/>
     <target name="xar">
-        <mkdir dir="${build.dir}"/>
+        <delete dir="data/"/>
+        <mkdir dir="data/"/>
+        <copy todir="data/">
+            <fileset dir="../hwh-data-internal-only/idGenerator/" includes="*.xml"/>
+        </copy>
+        <delete file="repo.xml"/>
+        <copy todir=".">
+            <file file="repo.xml"/>
+        </copy>
         <zip basedir="." destfile="${build.dir}/${project.app}_${project.version}_${DATETIME}.xar" excludes="${build.dir}/*"/>
     </target>
 </project>
