@@ -157,10 +157,6 @@ declare function app:getLatest($prefix as xs:string, $object as xs:string) {
 
 declare function app:logInAlert($node as node(), $model as map(*)) {
     let $username := xs:string(sm:id()//sm:real//sm:username)
-    let $usernameSwitched := switch($username)
-                                case 'admin' return 'Administrator'
-                                
-                                default return $username
     return
-        <div>Hallo <b>{$usernameSwitched}</b>!<br/>Du bist erfolgreich angemeldet. Bitte wähle eine Kategorie!</div>
+        <div>Hallo <b>{$username}</b>.<br/>Du bist erfolgreich angemeldet! Bitte wähle eine Kategorie!</div>
 };
