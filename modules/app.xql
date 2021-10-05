@@ -125,14 +125,14 @@ declare function app:generateID($node as node(), $model as map(*)) {
                 <div>
                     <a href="index.html"><button type="button" class="btn btn-success">Fertig</button></a>
                 </div>
-                <script>
+                <!--<script>
                     window.onload = function() {{
                           if(!window.location.hash) {{
                               window.location = window.location + '#loaded';
                               window.location.reload();
                           }}
                       }}
-                </script>
+                </script>-->
             </div>,
             update insert $input into $idList
         )
