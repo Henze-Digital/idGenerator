@@ -1,16 +1,15 @@
 <div xmlns="http://www.w3.org/1999/xhtml" data-template="templates:surround" data-template-with="templates/page.html" data-template-at="content">
     <div class="col-md"/>
     <div class="col-md-9">
-        <h1 data-template="config:app-title">ID Generator</h1>
+        <h1 data-template="config:app-title">ID Generator von Henze-Digital</h1>
         <div class="alert alert-success">
-            <p>
-               Sie haben sich erfolgreich angemeldet. Generieren Sie nun die gewüsnchte ID.</p>
+            <p data-template="app:logInAlert"/>
         </div>
         <div class="container">
             <p>Sie können zwischen folgenden ID-Typen wählen</p>
             
             <ul class="list-group">
-                <div data-template="app:typeList"/>
+                <li data-template="app:prefixList"/>
             </ul>
             
         </div>
