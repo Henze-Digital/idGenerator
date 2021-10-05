@@ -3,3 +3,4 @@ data/generatedIdList-*.xml
 *.DS_Store
 .existdb.json
 data/idsInUse-*.xml
+repo.xml

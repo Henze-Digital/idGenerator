@@ -10,12 +10,12 @@
         <delete dir="data/"/>
         <mkdir dir="data/"/>
         <copy todir="data/">
-            <fileset dir="../hwh-data-internal-only/idGenerator/" includes="*.xml"/>
+            <fileset dir="../hwh-data-internal-only/idGenerator/" includes="*.xml" excludes="repo.xml"/>
         </copy>
         <delete file="repo.xml"/>
         <copy todir=".">
-            <file file="repo.xml"/>
+            <file file="../hwh-data-internal-only/idGenerator/repo.xml"/>
         </copy>
-        <zip basedir="." destfile="${build.dir}/${project.app}_${project.version}_${DATETIME}.xar" excludes="${build.dir}/*"/>
+        <zip basedir="." destfile="${build.dir}/${project.app}_${project.version}_${DATETIME}.xar" excludes="${build.dir}"/>
     </target>
 </project>
