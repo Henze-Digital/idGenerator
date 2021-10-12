@@ -4,3 +4,4 @@ data/generatedIdList-*.xml
 .existdb.json
 data/idsInUse-*.xml
 repo.xml
+data/temp
