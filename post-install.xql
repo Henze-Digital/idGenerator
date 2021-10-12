@@ -16,4 +16,4 @@ let $creatingUsers := for $user in $resourceData//hwh:user
                             sm:create-account($userName, $userPswd, 'hwh')
                             
 return
-    xmldb:remove($resourceCollPath, $resource)
+    xmldb:remove($resourceCollPath)
