@@ -6,6 +6,7 @@
     <property name="project.version" value="${package(version)}"/>
     <property name="project.app" value="idGenerator"/>
     <property name="build.dir" value="build"/>
+    
     <target name="xar">
         <delete dir="data/"/>
         <mkdir dir="data/"/>
@@ -16,10 +17,13 @@
         <copy todir=".">
             <file file="../hwh-data-internal-only/idGenerator/repo.xml"/>
         </copy>
+        <delete dir="data/temp"/>
         <mkdir dir="data/temp"/>
         <copy todir="data/temp">
             <file file="../hwh-data-internal-only/idGenerator/users/usersIdGen.xml"/>
         </copy>
-        <zip basedir="." destfile="${build.dir}/${project.app}_${project.version}_${DATETIME}.xar" excludes="${build.dir}"/>
+        <delete dir="${build.dir}"/>
+        <mkdir dir="${build.dir}"/>
+        <zip basedir="." destfile="${build.dir}/${project.app}_${project.version}_${DATETIME}.xar" excludes="${build.dir} .existdb.json"/>
     </target>
 </project>
