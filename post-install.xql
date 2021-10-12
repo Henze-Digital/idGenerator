@@ -12,8 +12,11 @@ let $resourceData := doc(concat($resourceCollPath, $resource))
 let $creatingUsers := for $user in $resourceData//hwh:user
                         let $userName := $user/string(@name)
                         let $userPswd := $user/string(@password)
+                        let $userAlreadyExists := sm:user-exists($userName)
                         return
-                            sm:create-account($userName, $userPswd, 'hwh')
+                            if($userAlreadyExists)
+                            then()
+                            else(sm:create-account($userName, $userPswd, 'hwh'))
                             
 return
     xmldb:remove($resourceCollPath)
