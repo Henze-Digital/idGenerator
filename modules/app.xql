@@ -66,16 +66,16 @@ declare function app:switchPrefix($prefix as xs:string) as xs:string {
  :)
 declare function app:prefixList($node as node(), $model as map(*)) {
     let $dataCollection := collection ('/db/apps/idGenerator/data/')
-    let $prefixes := $dataCollection//hwh:generated/@prefix/string()
-
+    let $prefixes := $dataCollection//hwh:generated/@prefix
+    
     for $prefix in $prefixes
     let $label := app:switchPrefix($prefix)
-
+    let $disabled := if($prefix/self::node()/hwh:id[@n="0"]) then('disabled') else()
     order by $prefix
     return
         <li class="list-group-item">
-            <a href="generateID.html?prefix={$prefix}">
-                <button type="button" class="btn btn-secondary" id="refreshPage">{$label}</button>
+            <a href="generateID.html?prefix={$prefix}" class="{$disabled}">
+                <button type="button" class="btn btn-secondary {$disabled}" id="refreshPage">{$label}</button>
             </a> <span>&#160;</span> zuletzt verwendet:
             {app:getLatest($prefix, 'id')} <span>&#160;</span>
             {app:getLatest($prefix, 'date')}
