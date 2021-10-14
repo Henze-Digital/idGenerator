@@ -74,10 +74,13 @@ declare function app:prefixList($node as node(), $model as map(*)) {
     order by $prefix
     return
         <li class="list-group-item">
-            <a href="generateID.html?prefix={$prefix}" class="{$disabled}">
-                <button type="button" class="btn btn-secondary {$disabled}" id="refreshPage">{$label}</button>
-            </a> <span>&#160;</span> zuletzt verwendet:
-            {app:getLatest($prefix, 'id')} <span>&#160;</span>
+            {if($test)
+            then(<button type="button" class="btn btn-secondary disabled" style="width: 150px !important" id="refreshPage">{$label}</button>)
+            else(<a href="generateID.html?prefix={$prefix}">
+                    <button type="button" class="btn btn-secondary" style="width: 150px !important" id="refreshPage">{$label}</button>
+                 </a>)}
+            <span>&#160;</span> zuletzt verwendet:
+            <b>{app:getLatest($prefix, 'id')}</b> <span>&#160;</span>
             {app:getLatest($prefix, 'date')}
         </li>
 };
