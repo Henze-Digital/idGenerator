@@ -70,7 +70,7 @@ declare function app:prefixList($node as node(), $model as map(*)) {
     
     for $prefix in $prefixes
     let $label := app:switchPrefix($prefix)
-    let $disabled := if($prefix/self::node()/hwh:id[@n="0"]) then('disabled') else()
+    let $test := $prefix/parent::node()/hwh:id[@n="0"]
     order by $prefix
     return
         <li class="list-group-item">
