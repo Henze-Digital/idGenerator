@@ -107,6 +107,7 @@ declare function app:generateID($node as node(), $model as map(*)) {
             )
     let $checkDigit := hwh:compute-check-digit($newValue)
     let $newID := concat($newValue, $checkDigit)
+    let $folder := concat(substring($newID, 1, 5), 'xx')
     let $log := console:log(concat('new ID:',$newID))
     let $user := xs:string(sm:id()//sm:real//sm:username)
     let $date := substring(string(current-date()), 1,10)
@@ -124,6 +125,7 @@ declare function app:generateID($node as node(), $model as map(*)) {
             <div>
                 <h5>Die ID für den Typ <b>{$prefixSwitched}</b> lautet:</h5>
                 <h1><span id="newIdValue">{$newID}</span></h1>
+                <h3>Ordner: <i>{$folder}</i></h3>
                 <p>Erstellt: {$date} um {$time}</p>
                 <div>
                     <a href="index.html"><button type="button" class="btn btn-success">Fertig</button></a>
