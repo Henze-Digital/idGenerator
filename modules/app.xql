@@ -107,7 +107,7 @@ declare function app:generateID($node as node(), $model as map(*)) {
             )
     let $checkDigit := hwh:compute-check-digit($newValue)
     let $newID := concat($newValue, $checkDigit)
-    let $folder := concat(substring($newID, 1, 5), 'xx')
+    let $folder := concat(substring($newID, 1, 6), 'xx')
     let $log := console:log(concat('new ID:',$newID))
     let $user := xs:string(sm:id()//sm:real//sm:username)
     let $date := substring(string(current-date()), 1,10)
